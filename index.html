@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Prosa Pública: programa ao vivo sobre Jataí, com quem faz a cidade. Ter e Qui, 17h, na Rádio Jataí Goiás.">
+<meta name="description" content="Prosa Pública: programa sobre Jataí, com gente, música, histórias e a cidade explicada. De segunda a sexta, das 16h às 18h, na Rádio Jataí Goiás.">
 <title>Prosa Pública</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Work+Sans:wght@400;500;600&display=swap">
@@ -73,7 +73,7 @@ h2{font-size:clamp(2rem,4.5vw,3rem);font-weight:800;letter-spacing:-.015em}
 .roteiro th,.roteiro td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
 .roteiro th{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
 .roteiro td:first-child{font-weight:600;white-space:nowrap}
-.roteiro td:last-child{color:var(--muted);white-space:nowrap}
+.roteiro td b{font-weight:600}
 
 .pauta{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,64px);align-items:start}
 .pauta ol{margin:24px 0 0;padding-left:1.2em;display:flex;flex-direction:column;gap:10px}
@@ -92,6 +92,19 @@ h2{font-size:clamp(2rem,4.5vw,3rem);font-weight:800;letter-spacing:-.015em}
 .ep .thumb{aspect-ratio:16/9;max-width:100%;background:var(--cerrado);display:flex;align-items:flex-end;padding:16px;box-sizing:border-box;color:#fff;font-family:var(--display);font-weight:800;font-size:1.3rem;line-height:1.05}
 .ep:nth-child(2) .thumb{background:var(--terra)} .ep:nth-child(3) .thumb{background:var(--ipe);color:var(--cerrado)}
 .ep .meta{padding:14px 16px;color:var(--muted);font-size:.95rem}
+
+.vids{margin-top:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px;align-items:start}
+.ig{min-width:0}.ig iframe{max-width:100%!important;min-width:0!important}
+.ig-fb{display:block;position:relative;text-decoration:none;border-radius:18px;overflow:hidden;background:var(--cerrado)}
+.ig-fb img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
+.ig-fb span{position:absolute;left:16px;bottom:16px;background:var(--ipe);color:var(--cerrado);font-weight:600;padding:8px 14px;border-radius:999px}
+.mais{margin:28px 0 0}.mais a{text-decoration:none;color:var(--muted)}.mais b{color:var(--fg);font-family:var(--display)}
+.vid{margin:0;display:flex;flex-direction:column;gap:10px}
+.vid video{width:100%;max-width:100%;aspect-ratio:9/16;border-radius:18px;background:var(--cerrado);display:block}
+.vid figcaption{color:var(--muted);font-size:.95rem}
+.vid figcaption b{display:block;color:var(--fg);font-family:var(--display);font-size:1.2rem}
+.vid.more{aspect-ratio:9/16;max-width:100%;border-radius:18px;background:var(--cerrado);color:#fff;text-decoration:none;display:flex;flex-direction:column;justify-content:flex-end;padding:24px;box-sizing:border-box}
+.vid.more span{color:var(--on-dark-muted)} .vid.more b{font-family:var(--display);font-size:1.6rem;color:var(--ipe)}
 
 footer{background:var(--cerrado);color:var(--on-dark-muted)}
 footer .wrap{padding-block:40px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:center}
@@ -120,21 +133,21 @@ footer a{color:var(--ipe)}
       <ul>
         <li><a href="#quadros">Quadros</a></li>
         <li><a href="#pauta">Mande sua pauta</a></li>
-        <li><a href="#episodios">Episódios</a></li>
+        <li><a href="#assista">Assista</a></li>
       </ul>
     </nav>
 
     <div class="hero-grid">
       <div>
         <h1>A conversa que <em>Jataí</em> precisa ter.</h1>
-        <p class="lede">Programa ao vivo sobre a cidade, com quem faz a cidade. Uma entrevista por programa, a sua pauta no ar e a cobrança até ter resposta.</p>
+        <p class="lede">Um programa sobre Jataí: a gente, a música, as histórias e o que acontece na cidade. Tudo explicadinho, sem enrolação.</p>
       </div>
 
       <div class="onair" id="onair">
-        <span class="tag"><i></i>Ao vivo na Rádio Jataí Goiás</span>
+        <span class="tag"><i></i>Rádio Jataí Goiás · estreia em breve</span>
         <div class="when">
-          <div><small>Dias</small><strong>Ter e Qui</strong></div>
-          <div><small>Horário</small><strong>17h às 18h</strong></div>
+          <div><small>Dias</small><strong>Seg a Sex</strong></div>
+          <div><small>Horário</small><strong>16h às 18h</strong></div>
         </div>
         <button class="play" id="playBtn" type="button" aria-pressed="false">
           <svg id="icoPlay" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#12372A"/><path d="M10 8l6 4-6 4z" fill="#F5B700"/></svg>
@@ -153,36 +166,35 @@ footer a{color:var(--ipe)}
     <div class="wrap">
       <p class="eyebrow">Os quadros</p>
       <h2>Cada programa tem seu ritmo.</h2>
-      <p class="intro">A entrevista é o centro. Em volta dela, quadros fixos que explicam, cobram e também fazem rir.</p>
+      <p class="intro">Entre uma música e outra, quadros fixos que explicam, perguntam e também fazem rir.</p>
       <div class="quadros">
-        <article class="q"><span class="pill p-cobra">Cobrança</span><h3>Decidiram por você</h3><p>O que a Câmara, a prefeitura e outros órgãos decidiram na semana, e como isso muda a sua vida.</p></article>
-        <article class="q"><span class="pill p-cobra">Cobrança</span><h3>Pra onde foi o dinheiro?</h3><p>Um gasto público traduzido para o dia a dia: quanto custou, quem pagou e o que entregou.</p></article>
+        <article class="q"><span class="pill p-voz">Entrevista</span><h3>Gente de Jataí</h3><p>Uma conversa com quem faz a cidade: a história, o trabalho e o que essa pessoa vê de Jataí.</p></article>
+        <article class="q"><span class="pill p-cobra">Decisões</span><h3>Decidiram por você</h3><p>O que a Câmara, a prefeitura e outros órgãos decidiram na semana, e como isso muda a sua vida.</p></article>
+        <article class="q"><span class="pill p-cobra">Dinheiro público</span><h3>Pra onde foi o dinheiro?</h3><p>Um gasto público traduzido para o dia a dia: quanto custou, quem pagou e o que entregou.</p></article>
         <article class="q"><span class="pill p-voz">Pergunta</span><h3>A pergunta que ninguém fez</h3><p>Uma pergunta direta a quem decide. Se não houver resposta, ela volta no programa seguinte.</p></article>
         <article class="q"><span class="pill p-voz">Ouvinte</span><h3>Pauta do ouvinte</h3><p>Um problema enviado por você, acompanhado no ar até alguém resolver.</p></article>
-        <article class="q"><span class="pill p-leve">Leve</span><h3>Notícia mais absurda da semana</h3><p>O fato mais inacreditável de Jataí, comentado com humor e um pouco de indignação.</p></article>
-        <article class="q"><span class="pill p-voz">Música</span><h3>A música da prosa</h3><p>A escolha do convidado, o pedido do ouvinte e uma trilha que conversa com o tema do dia.</p></article>
+        <article class="q"><span class="pill p-leve">Leve</span><h3>Notícia mais absurda da semana</h3><p>O fato mais inacreditável de Jataí e da região, comentado com humor.</p></article>
+        <article class="q"><span class="pill p-voz">Música</span><h3>A música da prosa</h3><p>MPB e artistas que merecem ser ouvidos, o pedido do ouvinte e a escolha do convidado.</p></article>
       </div>
     </div>
   </section>
 
   <section class="block alt" aria-labelledby="hora">
     <div class="wrap">
-      <p class="eyebrow">Como é uma hora de Prosa</p>
-      <h2 id="hora">Do começo ao fim, em 60 minutos.</h2>
+      <p class="eyebrow">Como é uma tarde de Prosa</p>
+      <h2 id="hora">Duas horas de rádio, com muita música no meio.</h2>
+      <p class="intro">Um roteiro típico. Os quadros se revezam ao longo da semana.</p>
       <div class="roteiro">
         <table>
-          <thead><tr><th>Bloco</th><th>O que acontece</th><th>Tempo</th></tr></thead>
+          <thead><tr><th>Hora</th><th>O que acontece</th></tr></thead>
           <tbody>
-            <tr><td>Abertura</td><td>Tema do dia e quem é o convidado</td><td>3 min</td></tr>
-            <tr><td>Decidiram por você</td><td>As decisões públicas da semana</td><td>7 min</td></tr>
-            <tr><td>Entrevista, parte 1</td><td>A conversa com o convidado</td><td>15 min</td></tr>
-            <tr><td>Música</td><td>A escolha do convidado</td><td>4 min</td></tr>
-            <tr><td>Entrevista, parte 2</td><td>Com perguntas enviadas ao vivo</td><td>10 min</td></tr>
-            <tr><td>Pauta do ouvinte</td><td>Um problema da cidade, enviado por você</td><td>5 min</td></tr>
-            <tr><td>Música</td><td>Pedido do ouvinte ou trilha do tema</td><td>4 min</td></tr>
-            <tr><td>Dinheiro ou Pergunta</td><td>Os dois quadros se alternam</td><td>6 min</td></tr>
-            <tr><td>Notícia mais absurda</td><td>O momento leve da semana</td><td>4 min</td></tr>
-            <tr><td>Encerramento</td><td>Resumo e o que vem no próximo</td><td>2 min</td></tr>
+            <tr><td>16h</td><td><b>Abertura</b><br><span style="color:var(--muted)">O tema do dia e o que vem por aí</span></td></tr>
+            <tr><td>16h10</td><td><b>Música e recados</b><br><span style="color:var(--muted)">Pedidos e áudios dos ouvintes</span></td></tr>
+            <tr><td>16h30</td><td><b>Quadro do dia</b><br><span style="color:var(--muted)">Decidiram por você, Pra onde foi o dinheiro? ou A pergunta que ninguém fez</span></td></tr>
+            <tr><td>17h</td><td><b>Gente de Jataí</b><br><span style="color:var(--muted)">A conversa com o convidado</span></td></tr>
+            <tr><td>17h30</td><td><b>Pauta do ouvinte</b><br><span style="color:var(--muted)">Um problema da cidade, enviado por você</span></td></tr>
+            <tr><td>17h45</td><td><b>Notícia mais absurda</b><br><span style="color:var(--muted)">O momento leve do dia</span></td></tr>
+            <tr><td>17h55</td><td><b>Encerramento</b><br><span style="color:var(--muted)">Resumo e o que vem amanhã</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -198,7 +210,7 @@ footer a{color:var(--ipe)}
         <ol>
           <li>Escreva o problema e o bairro.</li>
           <li>Copie a mensagem pronta.</li>
-          <li>Envie no WhatsApp do programa: <span class="zap">[NÚMERO DO WHATSAPP]</span></li>
+          <li>Envie pelo direct do Instagram: <a class="zap" href="https://ig.me/m/prosapublica" target="_blank" rel="noopener">@prosapublica</a></li>
         </ol>
       </div>
       <form class="form" id="pautaForm" novalidate>
@@ -210,28 +222,31 @@ footer a{color:var(--ipe)}
         <div class="out" id="out" hidden>
           <pre id="msg"></pre>
           <button class="btn ghost" type="button" id="copyBtn">Copiar mensagem</button>
+          <a class="btn" href="https://ig.me/m/prosapublica" target="_blank" rel="noopener" style="text-decoration:none">Abrir o direct do Prosa</a>
         </div>
       </form>
     </div>
   </section>
 
-  <section class="block alt" id="episodios">
+  <section class="block alt" id="assista">
     <div class="wrap">
-      <p class="eyebrow">Episódios</p>
-      <h2>Estreia em novembro.</h2>
-      <p class="intro">Os programas completos e os melhores cortes vão aparecer aqui depois de cada transmissão. Enquanto isso, acompanhe no Instagram.</p>
-      <div class="eps">
-        <article class="ep"><div class="thumb">Episódio 1<br>[Convidado]</div><div class="meta">Em breve</div></article>
-        <article class="ep"><div class="thumb">Pra onde foi o dinheiro?</div><div class="meta">Corte · em breve</div></article>
-        <article class="ep"><div class="thumb">Notícia mais absurda da semana</div><div class="meta">Corte · em breve</div></article>
+      <p class="eyebrow">Assista</p>
+      <h2>Estreia em breve.</h2>
+      <p class="intro">Enquanto a estreia não chega, veja o que já está no Instagram. Os programas e os melhores cortes vão aparecer aqui.</p>
+      <div class="vids">
+        <div class="ig"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Df940gLkbLk/" data-instgrm-version="14" style="background:#fff;border:0;border-radius:18px;margin:0;max-width:540px;min-width:300px;width:100%;padding:0;overflow:hidden"><a href="https://www.instagram.com/p/Df940gLkbLk/" target="_blank" rel="noopener" class="ig-fb"><img src="media/carrossel-capa.jpg" alt="Carrossel de apresentação do Prosa Pública" loading="lazy"><span>Ver no Instagram</span></a></blockquote></div>
+        <div class="ig"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DgAhAxxRpfF/" data-instgrm-version="14" style="background:#fff;border:0;border-radius:18px;margin:0;max-width:540px;min-width:300px;width:100%;padding:0;overflow:hidden"><a href="https://www.instagram.com/reel/DgAhAxxRpfF/" target="_blank" rel="noopener" class="ig-fb"><img src="media/reel-1-o-programa.jpg" alt="Reel: Tem programa novo em Jataí" loading="lazy"><span>Ver no Instagram</span></a></blockquote></div>
+        <figure class="vid"><video controls playsinline preload="none" poster="media/reel-2-os-quadros.jpg" src="media/reel-2-os-quadros.mp4"></video><figcaption><b>Os quadros</b>O que você vai ouvir no Prosa</figcaption></figure>
       </div>
+      <p class="mais"><a href="https://www.instagram.com/prosapublica/" target="_blank" rel="noopener">Ver tudo no Instagram: <b>@prosapublica</b></a></p>
+      <script async src="https://www.instagram.com/embed.js"></script>
     </div>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <span>Prosa Pública · Jataí, Goiás · Ao vivo na Rádio Jataí Goiás</span>
+    <span>Prosa Pública · Jataí, Goiás · Seg a sex, 16h às 18h, na Rádio Jataí Goiás</span>
     <a href="https://www.instagram.com/prosapublica/" target="_blank" rel="noopener">@prosapublica no Instagram</a>
   </div>
 </footer>
